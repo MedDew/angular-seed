@@ -13,7 +13,12 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
     
     if($routeParams.id === undefined)
     {
-        $scope.cars = Car.carList();
+        $scope.cars = Car.carList().query();
+        console.log(Car);
+        for(var p in Car)
+        {
+            console.log("p => "+p);
+        }
 
         $scope.getSpecificCar = function(id){
             console.log("absUrl() : "+$location.absUrl());
@@ -33,5 +38,8 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         console.log("Param Id : "+$routeParams.id);
         console.log("Param Id is undefined : ");
         console.log($routeParams.id === undefined);
+        $scope.specificCar = Car.carSpecific().get({carId : $routeParams.id}, function(data){
+            console.log("DATA : "+angular.toJson(data));
+        });
     }
 }]);
