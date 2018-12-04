@@ -1,1 +1,24 @@
-<p>Specific car</p>
+<!-- <p>{{ specificCar }}</p> -->
+<h1>Car details for: {{ specificCar.brand }} {{ specificCar.model }}</h1>
+
+<dl>
+    <dt>Brand : </dt>
+    <dd>{{ specificCar.brand }}</dd>
+    
+    <dt>Model : </dt>
+    <dd>{{ specificCar.model }}</dd>
+    
+    <dt>Price : </dt>
+    <dd>{{ specificCar.price }}</dd>
+    
+    <dt>N° seats : </dt>
+    <dd>{{ specificCar.nbSeats }}</dd>
+    
+    <dt>HorsePower : </dt>
+    <dd>{{ specificCar.horsePower }}</dd>
+    
+    <dt>Weight : </dt>
+    <dd>{{ specificCar.weight }}</dd>
+</dl>
+
+<a ng-href="#!/cars">Back to car's list</a>
