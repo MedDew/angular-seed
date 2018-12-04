@@ -1,0 +1,25 @@
+<h1>Car List : </h1>
+<p>We have  : {{cars.length}} cars in the dealership</p>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>N° Seats</th>
+        <th>Price</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>HorsePower</th>
+        <th>Weight</th>
+        <th>Detail</th>
+    </tr>
+    <tr ng-repeat="car in cars" ng-click="getSpecificCar(car.id)">
+        <td>{{ car.id }}</td>
+        <td>{{ car.nbSeats }}</td>
+        <td>{{ car.price }}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.horsePower }}</td>
+        <td>{{ car.weight }}</td>
+        <td><a ng-href="#!/cars/{{ car.id }}">{{ car.model }} details</a> </td>
+    </tr>
+
+</table>
