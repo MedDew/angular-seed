@@ -1,0 +1,67 @@
+<h1>Car creation</h1>
+<form name="carCreate" novalidate method="POST">
+    
+    <label for="brand">Brand : </label>
+    <br/>
+    <input id="brand" name="cBrand" ng-model="car.brand" required/>
+    
+    <div ng-show="carCreate.cBrand.$touched" ng-model-options="{ updateOn : 'blur'}"><!--carCreate.$submitted || -->
+        <!--{{carCreate.cBrand.$error.required}}-->
+        <div ng-show="carCreate.cBrand.$error.minlength <2">Brand too short</div>
+        <div ng-show="carCreate.cBrand.$error.required">Please enter a brand</div>
+    </div>
+    <br/>
+    <br/>
+    
+    <label for="model">Model : </label>
+    <br/>
+    <input id="model" name="model" ng-model="car.model" required/>
+    <div ng-show="carCreate.model.$touched"><!--carCreate.$submitted || -->
+        <div ng-show="carCreate.model.$error.required">Please enter a model</div>
+    </div>
+    <br/>
+    <br/>
+    
+    <label for="price">Price : </label>
+    <br/>
+    <input type="number" min="1" id="price" name="price" ng-model="car.price" required/>
+    <div ng-show="carCreate.price.$touched"><!--carCreate.$submitted || -->
+        <div ng-show="carCreate.price.$error.min">Please enter a price upper than 0</div>
+        <div ng-show="carCreate.price.$error.required">Please enter a price </div>
+    </div>
+    <br/>
+    <br/>
+    
+    <label for="horsePower">Horsepower : </label>
+    <br/>
+    <input type="number" min="1" id="horsePower" name="horsePower" ng-model="car.horsePower" required/>
+    <div ng-show="carCreate.horsePower.$touched"><!--carCreate.$submitted || -->
+        <div ng-show="carCreate.horsePower.$error.min">Please enter a horsepower upper than 1</div>
+        <div ng-show="carCreate.horsePower.$error.required">Please enter a horsepower</div>
+    </div>
+    <br/>
+    <br/>
+    
+    <label for="seats">N° seats : </label>
+    <br/>
+    <input type="number" min="2" max="9" id="seats" name="nbSeats" ng-model="car.nbSeats" required/>
+    <div ng-show="carCreate.nbSeats.$touched"><!--carCreate.$submitted || -->
+        <div ng-show="carCreate.nbSeats.$error.max">Please enter a number of seats less than 9</div>
+        <div ng-show="carCreate.nbSeats.$error.min">Please enter a number of seats upper than 2</div>
+        <div ng-show="carCreate.nbSeats.$error.required">Please enter a number</div>
+    </div>
+    <br/>
+    <br/>
+    
+    <label for="weight">Weight : </label>
+    <br/>
+    <input type="number" id="weight" name="weight" ng-model="car.weight" required/>
+    <div ng-show="carCreate.$submitted || carCreate.weight.$touched">
+        <div ng-show="carCreate.weight.$error.required">Please enter a value</div>
+    </div>
+    <br/>
+    <br/>
+
+    <button ng-click="submitCarCreateValues(car)">Create car</button>
+    <button ng-click="resetCarCreateForm(carCreate)">Rest car form</button>
+</form>
