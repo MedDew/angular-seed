@@ -128,5 +128,12 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
                 console.log("p : " + p);
             }
         };
+
+        $scope.resetCarUpdateForm = function(){
+            $scope.updateCarSpecifc = Car.carSpecific().carSpecific({carId : $routeParams.carId}, function (response){
+                console.log("Response return from webservice : ", response);
+            });
+            console.log("Form to reset with these initial value : ", $scope.updateCarSpecifc);
+        }
     }
 }]);
