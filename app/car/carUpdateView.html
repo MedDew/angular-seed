@@ -68,7 +68,7 @@
     
     <label for="weight">Weight : </label>
     <br/>
-    <input type="number" id="weight" name="weight" ng-model="updateCarSpecifc.weight" ng-value="updateCarSpecifc.weight" required/>
+    <input type="number" id="weight" name="weight" step="100" ng-model="updateCarSpecifc.weight" ng-value="updateCarSpecifc.weight" required/>
     <div ng-if="carUpdate.weight.$touched">
         <div ng-if="carUpdate.weight.$error.required">
             Please fill the car's weight field
