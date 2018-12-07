@@ -10,6 +10,7 @@
         <th>HorsePower</th>
         <th>Weight</th>
         <th>Detail</th>
+        <th>Car Update</th>
     </tr>
     <tr ng-repeat="car in cars" ng-click="getSpecificCar(car.id)">
         <td>{{ car.id }}</td>
@@ -20,6 +21,7 @@
         <td>{{ car.horsePower }}</td>
         <td>{{ car.weight }}</td>
         <td><a ng-href="#!/cars/{{ car.id }}">{{ car.model }} details</a> </td>
+        <td><a ng-href="#!/cars/update/{{ car.id }}">{{ car.model }} update</a> </td>
     </tr>
 
 </table>
