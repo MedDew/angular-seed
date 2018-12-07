@@ -5,7 +5,7 @@ carModule.constant("redirectedRoute", "http://localhost:8000/#!/cars");
 
 var carConfig = carModule.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
     $locationProvider.hashPrefix('');
-    $routeProvider.when("/cars", { templateUrl : "car/carView.html", controller : "CarController"})
+    $routeProvider//.when("/cars", { templateUrl : "car/carView.html", controller : "CarController"})
     .when("/cars/create", { templateUrl : "car/carPostView.html", controller : "CarController"})
     .when("/cars/notFound", { templateUrl : "car/carNotFoundView.html", controller : "CarController"})
     .when("/cars/:id", { templateUrl : "car/carSpecificView.html", controller : "CarController"})
@@ -14,7 +14,7 @@ var carConfig = carModule.config(["$routeProvider", "$locationProvider", functio
 
 carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirectedRoute", "$routeParams", "$rootScope", function($scope, Car, $location, redirectedRoute, $routeParams, $rootScope){
     
-    if($routeParams.id === undefined && $location.path() == "/cars")
+    /*if($routeParams.id === undefined && $location.path() == "/cars")
     {
         $scope.cars = Car.carList().query();
         console.log(Car);
@@ -34,7 +34,7 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
             console.log($location.url("/cars/"+id));
             // return $location.url(redirectedRoute+"/"+id).replace(/%2F/gi, "/");
         }
-    }
+    }*/
     
     if($routeParams.id && $routeParams.id.match(/\d+/))
     {
