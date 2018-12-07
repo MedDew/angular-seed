@@ -1,0 +1,43 @@
+<h1>Car update</h1>
+<form name="carUpdate" novalidate method="POST">
+    <!-- <pre>{{ updateCarSpecifcTwo.brand | json }}</pre>
+    <pre>{{ updateCarSpecifc | json }}</pre> -->
+    <label for="brand">Brand : </label>
+    <br/>
+    <input id="brand" name="cBrand" ng-model="updateCarSpecifc.brand" ng-value="updateCarSpecifc.brand" required/>
+    <br/>
+    <br/>
+    
+    <label for="model">Model : </label>
+    <br/>
+    <input id="model" name="model" ng-model="updateCarSpecifc.model" ng-value="updateCarSpecifc.model" required/>
+    <br/>
+    <br/>
+
+    <label for="price">Price : </label>
+    <br/>
+    <input type="number" min="1" id="price" name="price" ng-model="updateCarSpecifc.price" ng-value="updateCarSpecifc.price" required/>
+    <br/>
+    <br/>
+
+    <label for="horsePower">Horsepower : </label>
+    <br/>
+    <input type="number" min="1" id="horsePower" name="horsePower" ng-model="updateCarSpecifc.horsePower" ng-value="updateCarSpecifc.horsePower" required/>
+    <br/>
+    <br/>
+
+    <label for="seats">N° seats : </label>
+    <br/>
+    <input type="number" min="2" max="9" id="seats" name="nbSeats" ng-model="updateCarSpecifc.nbSeats" ng-value="updateCarSpecifc.nbSeats" required/>
+    <br/>
+    <br/>
+
+    <label for="weight">Weight : </label>
+    <br/>
+    <input type="number" id="weight" name="weight" ng-model="updateCarSpecifc.weight" ng-value="updateCarSpecifc.weight" required/>
+    <br/>
+    <br/>
+
+    <button ng-click="submitCarUpdateValues(updateCarSpecifc)">Update car</button>
+    <button ng-click="resetCarUpdateForm(carUpdate)">Rest car form</button>
+</form>
