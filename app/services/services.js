@@ -21,7 +21,7 @@ carService.factory("Car", ["$resource", "apiURL", function($resource, apiURL)
             return $resource(apiURL.baseURL+apiURL.carListEndpoint, 
                 {}, 
                 {
-                    carList : {methods : "GET", params : {}, isArray : true} 
+                    carList : {method : "GET", params : {}, isArray : true} 
                 }
                 );
             }
@@ -30,10 +30,11 @@ carService.factory("Car", ["$resource", "apiURL", function($resource, apiURL)
             {
                 console.log("Car Specific service method");
                 console.log("Fetch that car : "+id);
+                console.log("Specific URL : ", apiURL.baseURL+apiURL.carSpecificEndpoint);
                 return $resource(apiURL.baseURL+apiURL.carSpecificEndpoint, 
                         {carId : "@id"}, 
                         {
-                            carSpecific : {methods : "GET", params : {}, isArray : false} 
+                            carSpecific : {method : "GET", params : {}, isArray : false} 
                         }
                         );
         }
@@ -44,7 +45,18 @@ carService.factory("Car", ["$resource", "apiURL", function($resource, apiURL)
             return $resource(apiURL.baseURL+apiURL.carCreateEndpoint, 
                       {}, //{carId : "@id"}
                       {
-                        carCreate : {methods : "POST", params : {}, isArray : true, } //headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                        carCreate : {method : "POST", params : {}, isArray : true } //headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                      }
+                     );
+        }
+        
+        this.putCar = function (car)
+        {
+            console.log("Update URI : ", apiURL.baseURL+apiURL.carUpdateEndpoint, car);
+            return $resource(apiURL.baseURL+apiURL.carUpdateEndpoint, 
+                      {carId : "@id"}, //
+                      {
+                        carUpdate : {method : "PUT", isArray : false }
                       }
                      );
         }
