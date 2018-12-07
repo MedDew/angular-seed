@@ -125,7 +125,8 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
                 let car = Car.putCar().carUpdate({carId : updatedCar.id}, updatedCar);
                 console.log("Car updated : " , car);
                 for(var p in Car)
-                console.log("p : " + p);
+                    console.log("p : " + p);
+                $location.path("/cars/"+updatedCar.id);
             }
         };
 
