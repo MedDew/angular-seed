@@ -7,8 +7,8 @@ var carConfig = carModule.config(["$routeProvider", "$locationProvider", functio
     $locationProvider.hashPrefix('');
     $routeProvider//.when("/cars", { templateUrl : "car/carView.html", controller : "CarController"})
     .when("/cars/create", { templateUrl : "car/carPostView.html", controller : "CarController"})
-    .when("/cars/notFound", { templateUrl : "car/carNotFoundView.html", controller : "CarController"})
-    .when("/cars/:id", { templateUrl : "car/carSpecificView.html", controller : "CarController"})
+    //.when("/cars/notFound", { templateUrl : "car/carNotFoundView.html", controller : "CarController"})
+    //.when("/cars/:id", { templateUrl : "car/carSpecificView.html", controller : "CarController"})
     .when("/cars/update/:carId", { templateUrl : "car/carUpdateView.html", controller : "CarController"})
 }]);
 
@@ -36,7 +36,7 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         }
     }*/
     
-    if($routeParams.id && $routeParams.id.match(/\d+/))
+    /*if($routeParams.id && $routeParams.id.match(/\d+/))
     {
         console.log("Param Id : "+$routeParams.id);
         console.log("Param Id is undefined : ");
@@ -53,7 +53,7 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         });
 
         console.log("DATA specificCar: ", $scope.specificCar);
-    }
+    }*/
 
     if($routeParams.id === undefined && $location.path() == "/cars/create")
     {
