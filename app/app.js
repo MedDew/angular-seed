@@ -9,6 +9,7 @@ angular.module('myApp', [
   "carModule",
   "CarListModule",
   "CarSpecificModule",
+  "CarCreateModule",
   "CarServices"
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
