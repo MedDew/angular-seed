@@ -5,36 +5,75 @@
     <label for="brand">Brand : </label>
     <br/>
     <input id="brand" name="cBrand" ng-model="updateCarSpecifc.brand" ng-value="updateCarSpecifc.brand" required/>
+    <div ng-if="carUpdate.cBrand.$touched">
+        <div ng-if="carUpdate.cBrand.$error.required">
+            Please fill the car's brand field
+        </div>
+    </div>
     <br/>
     <br/>
     
     <label for="model">Model : </label>
     <br/>
     <input id="model" name="model" ng-model="updateCarSpecifc.model" ng-value="updateCarSpecifc.model" required/>
+    <div ng-if="carUpdate.model.$touched">
+        <div ng-if="carUpdate.model.$error.required">
+            Please fill the car's model field
+        </div>
+    </div>
     <br/>
     <br/>
-
+    
     <label for="price">Price : </label>
     <br/>
     <input type="number" min="1" id="price" name="price" ng-model="updateCarSpecifc.price" ng-value="updateCarSpecifc.price" required/>
+    <div ng-if="carUpdate.price.$touched">
+        <div ng-if="carUpdate.price.$error.required">
+            Please fill the car's price field
+        </div>
+        <div ng-if="carUpdate.price.$error.min">
+            The minimum price value of a car is 1
+        </div>
+    </div>
     <br/>
     <br/>
-
+    
     <label for="horsePower">Horsepower : </label>
     <br/>
     <input type="number" min="1" id="horsePower" name="horsePower" ng-model="updateCarSpecifc.horsePower" ng-value="updateCarSpecifc.horsePower" required/>
+    <div ng-if="carUpdate.horsePower.$touched">
+        <div ng-if="carUpdate.horsePower.$error.required">
+            Please fill the car's horsepower field
+        </div>
+        <div ng-if="carUpdate.horsePower.$error.min">
+            The minimum horsepower value of a car is 1
+        </div>
+    </div>
     <br/>
     <br/>
-
+    
     <label for="seats">N° seats : </label>
     <br/>
     <input type="number" min="2" max="9" id="seats" name="nbSeats" ng-model="updateCarSpecifc.nbSeats" ng-value="updateCarSpecifc.nbSeats" required/>
+    <div ng-if="carUpdate.nbSeats.$touched">
+        <div ng-if="carUpdate.nbSeats.$error.required">
+            Please fill the car's number of seats field
+        </div>
+        <div ng-if="carUpdate.nbSeats.$error.min">
+            The minimum number of seats value of a car is 2
+        </div>
+    </div>
     <br/>
     <br/>
-
+    
     <label for="weight">Weight : </label>
     <br/>
     <input type="number" id="weight" name="weight" ng-model="updateCarSpecifc.weight" ng-value="updateCarSpecifc.weight" required/>
+    <div ng-if="carUpdate.weight.$touched">
+        <div ng-if="carUpdate.weight.$error.required">
+            Please fill the car's weight field
+        </div>
+    </div>
     <br/>
     <br/>
 
