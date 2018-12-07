@@ -26,7 +26,7 @@ carService.factory("Car", ["$resource", "apiURL", function($resource, apiURL)
                 );
             }
             
-            this.carSpecific = function carSpecific(id)
+            this.carSpecific = function(id)
             {
                 console.log("Car Specific service method");
                 console.log("Fetch that car : "+id);
@@ -39,13 +39,13 @@ carService.factory("Car", ["$resource", "apiURL", function($resource, apiURL)
                         );
         }
         
-        this.postCar = function postCar(car)
+        this.postCar = function (car)
         {
             console.log("Car to create : "+angular.toJson(car));
             return $resource(apiURL.baseURL+apiURL.carCreateEndpoint, 
                       {}, //{carId : "@id"}
                       {
-                        carCreate : {method : "POST", params : {}, isArray : true } //headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                        carCreate : {method : "POST", params : {}, isArray : false } //headers : {'Content-Type': 'application/x-www-form-urlencoded'}
                       }
                      );
         }
