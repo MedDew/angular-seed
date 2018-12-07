@@ -7,11 +7,12 @@ var carConfig = carModule.config(["$routeProvider", "$locationProvider", functio
     $locationProvider.hashPrefix('');
     $routeProvider.when("/cars", { templateUrl : "car/carView.html", controller : "CarController"})
     .when("/cars/create", { templateUrl : "car/carPostView.html", controller : "CarController"})
+    .when("/cars/notFound", { templateUrl : "car/carNotFoundView.html", controller : "CarController"})
     .when("/cars/:id", { templateUrl : "car/carSpecificView.html", controller : "CarController"})
     .when("/cars/update/:carId", { templateUrl : "car/carUpdateView.html", controller : "CarController"})
 }]);
 
-carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirectedRoute", "$routeParams", function($scope, Car, $location, redirectedRoute, $routeParams){
+carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirectedRoute", "$routeParams", "$rootScope", function($scope, Car, $location, redirectedRoute, $routeParams, $rootScope){
     
     if($routeParams.id === undefined && $location.path() == "/cars")
     {
@@ -42,6 +43,13 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         console.log($routeParams.id === undefined);
         $scope.specificCar = Car.carSpecific().get({carId : $routeParams.id}, function(data){
             console.log("DATA : "+angular.toJson(data));
+        }, function(response){
+           if(response.status === 404 )
+           {
+                console.log("Car not found  : "+$routeParams.id);
+                $location.path("/cars/notFound");
+                $rootScope.carIdNotFound = $routeParams.id;
+           } 
         });
 
         console.log("DATA specificCar: ", $scope.specificCar);
@@ -108,6 +116,18 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         $scope.updateCarSpecifc = Car.carSpecific({carId : $routeParams.carId}).get({carId : $routeParams.carId}, function(data){
             console.log("Found car to update : "+angular.toJson(data));
             //$scope.updateCarSpecifc = data;
+        },
+        function(response){
+            console.log("Typeof response : "+typeof response);
+            console.log("response : ", response);
+            if(response.status === 404)
+            {
+                console.log("Redirect to /cars/notFound : "+ $routeParams.carId);
+                $rootScope.carIdNotFound = $routeParams.carId;
+                $location.path("/cars/notFound");
+                //Allows to go back in history
+                $location.replace();
+            }
         });//.$promise.then(function(response) {
         //     $scope.updateCarSpecifcTwo = response;
         //     console.log("Reponse", $scope.updateCarSpecifcTwo)
