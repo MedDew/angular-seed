@@ -118,11 +118,15 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         console.log("HEY : " , $scope.updateCarSpecifc);
 
         $scope.submitCarUpdateValues = function(updatedCar){
-            console.log("Updated car : ", updatedCar, updatedCar.id);
-            let car = Car.putCar().carUpdate({carId : updatedCar.id}, updatedCar);
-            console.log("Car updated : " , car);
-            for(var p in Car)
+            if($scope.carUpdate.$valid)
+            {
+                console.log("Is car update form's valid : ", $scope.carUpdate.$valid);
+                console.log("Updated car : ", updatedCar, updatedCar.id);
+                let car = Car.putCar().carUpdate({carId : updatedCar.id}, updatedCar);
+                console.log("Car updated : " , car);
+                for(var p in Car)
                 console.log("p : " + p);
+            }
         };
     }
 }]);
