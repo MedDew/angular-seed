@@ -55,9 +55,10 @@
     
     <label for="weight">Weight : </label>
     <br/>
-    <input type="number" id="weight" name="weight" ng-model="car.weight" required/>
-    <div ng-show="carCreate.$submitted || carCreate.weight.$touched">
+    <input type="number" min="1" id="weight" name="weight" ng-model="car.weight" required/>
+    <div ng-show="carCreate.weight.$touched">
         <div ng-show="carCreate.weight.$error.required">Please enter a value</div>
+        <div ng-show="carCreate.weight.$error.min">Weight value has to be upper than 1</div>
     </div>
     <br/>
     <br/>
