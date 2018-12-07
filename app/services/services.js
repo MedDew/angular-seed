@@ -15,7 +15,7 @@ carService.constant('apiURL',
 carService.factory("Car", ["$resource", "apiURL", function($resource, apiURL)
     {
         console.log(apiURL);
-        this.carList = function carList()
+        this.carList = function ()
         {
             console.log("Car List service method");
             return $resource(apiURL.baseURL+apiURL.carListEndpoint, 
