@@ -6,7 +6,7 @@ carModule.constant("redirectedRoute", "http://localhost:8000/#!/cars");
 var carConfig = carModule.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
     $locationProvider.hashPrefix('');
     $routeProvider//.when("/cars", { templateUrl : "car/carView.html", controller : "CarController"})
-    .when("/cars/create", { templateUrl : "car/carPostView.html", controller : "CarController"})
+    //.when("/cars/create", { templateUrl : "car/carPostView.html", controller : "CarController"})
     //.when("/cars/notFound", { templateUrl : "car/carNotFoundView.html", controller : "CarController"})
     //.when("/cars/:id", { templateUrl : "car/carSpecificView.html", controller : "CarController"})
     .when("/cars/update/:carId", { templateUrl : "car/carUpdateView.html", controller : "CarController"})
@@ -55,7 +55,7 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         console.log("DATA specificCar: ", $scope.specificCar);
     }*/
 
-    if($routeParams.id === undefined && $location.path() == "/cars/create")
+    /*if($routeParams.id === undefined && $location.path() == "/cars/create")
     {
         console.log("Is /cars/create path : ");
         console.log($location.path() == "/cars/create");
@@ -101,7 +101,7 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
             $scope.car = angular.copy($scope.carFormValues);
             console.log($scope.car);
         }
-    }
+    }*/
     
     if($routeParams.carId && /\/cars\/update\/\d+/.test($location.path()))
     {
