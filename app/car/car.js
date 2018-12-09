@@ -9,7 +9,7 @@ var carConfig = carModule.config(["$routeProvider", "$locationProvider", functio
     //.when("/cars/create", { templateUrl : "car/carPostView.html", controller : "CarController"})
     //.when("/cars/notFound", { templateUrl : "car/carNotFoundView.html", controller : "CarController"})
     //.when("/cars/:id", { templateUrl : "car/carSpecificView.html", controller : "CarController"})
-    .when("/cars/update/:carId", { templateUrl : "car/carUpdateView.html", controller : "CarController"})
+    // .when("/cars/update/:carId", { templateUrl : "car/carUpdateView.html", controller : "CarController"})
 }]);
 
 carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirectedRoute", "$routeParams", "$rootScope", function($scope, Car, $location, redirectedRoute, $routeParams, $rootScope){
