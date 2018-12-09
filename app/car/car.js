@@ -103,7 +103,7 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         }
     }*/
     
-    if($routeParams.carId && /\/cars\/update\/\d+/.test($location.path()))
+    /*if($routeParams.carId && /\/cars\/update\/\d+/.test($location.path()))
     {
         console.log("Is car update route");
         console.log(/\/cars\/update\/\d+/.test($location.path()));
@@ -156,5 +156,5 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
             });
             console.log("Form to reset with these initial value : ", $scope.updateCarSpecifc);
         }
-    }
+    }*/
 }]);
