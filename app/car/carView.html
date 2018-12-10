@@ -1,5 +1,5 @@
-<h1>Car List : </h1>
-<p>We have  : {{cars.length}} cars in the dealership</p>
+<h1 class="title is-1">Car List : </h1>
+<p class="tag is-black is-large is-rounded">We have  : {{cars.length}} cars in the dealership</p>
 <table class="table is-fullwidth is-striped is-hoverable">
     <tr>
         <th>Id</th>
@@ -35,8 +35,8 @@
         <td>
             <a ng-href="#!/cars/delete/{{ car.id }}" ng-click="$event.stopPropagation()" class="button is-danger is-outlined is-rounded">
                 <span class="column">{{ car.model }} delete</span>
-                <span class="delete is-small">
-                    <!-- <i class="fas fa-times"></i> -->
+                <span class="icon is-small">
+                    <i class="fas fa-times"></i>
                 </span>
             </a> 
         </td>
