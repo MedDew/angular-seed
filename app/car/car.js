@@ -10,11 +10,12 @@ var carConfig = carModule.config(["$routeProvider", "$locationProvider", functio
     .when("/cars/notFound", { templateUrl : "car/carNotFoundView.html", controller : "CarController"})
     .when("/cars/:id", { templateUrl : "car/carSpecificView.html", controller : "CarController"})
     .when("/cars/update/:carId", { templateUrl : "car/carUpdateView.html", controller : "CarController"})
+    .when("/cars/delete/:carId", { templateUrl : "car/carDeleteView.html", controller : "CarController"})
 }]);
 
-carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirectedRoute", "$routeParams", "$rootScope", function($scope, Car, $location, redirectedRoute, $routeParams, $rootScope){
+carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirectedRoute", "$routeParams", "$rootScope", "$window", function($scope, Car, $location, redirectedRoute, $routeParams, $rootScope, $window){
     
-    if($routeParams.id === undefined && $location.path() == "/cars")
+    if($routeParams.id === undefined && /\/cars$/.test($location.path()))
     {
         $scope.cars = Car.carList().query();
         console.log(Car);
@@ -34,9 +35,20 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
             console.log($location.url("/cars/"+id));
             // return $location.url(redirectedRoute+"/"+id).replace(/%2F/gi, "/");
         }
+        
+        $scope.deleteCar = function(id, $event){
+            console.log("DELETE THIS CAR ==> "+id);
+            //prevent clcick event from bubbling to the parent
+            $event.stopPropagation();
+            Car.deleteCar().carDelete({id : id});
+
+            //Re initialize  both the service and the controller
+            $window.location.reload();
+        }
     }
     
-    if($routeParams.id && $routeParams.id.match(/\d+/))
+    console.log("YAWP : ", /\/cars\/\d+/.test($location.path()));
+    if($routeParams.id && /^\/cars\/\d+$/.test($location.path()))//$routeParams.id.match(/\d+/)
     {
         console.log("Param Id : "+$routeParams.id);
         console.log("Param Id is undefined : ");
@@ -155,6 +167,18 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
                 console.log("Response return from webservice : ", response);
             });
             console.log("Form to reset with these initial value : ", $scope.updateCarSpecifc);
+        }
+    }
+
+    if($routeParams.carId  && /^\/cars\/delete\/\d+$/.test($location.path()))
+    {
+        console.log($location.path());
+        $scope.carToDelete = Car.carSpecific().get({carId : $routeParams.carId});
+        
+        $scope.deleteCar = function(){
+            console.log("DELETE THIS CAR ==> "+$routeParams.carId);
+
+            Car.deleteCar().carDelete({id : $routeParams.carId});
         }
     }
 }]);
