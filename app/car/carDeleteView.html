@@ -1,0 +1,29 @@
+
+<h1>Car to delete : {{ carToDelete.brand }} - {{ carToDelete.model }}</h1>
+
+<dl>
+    <dt>Brand : </dt>
+    <dd>{{ carToDelete.brand }}</dd>
+    
+    <dt>Model : </dt>
+    <dd>{{ carToDelete.model }}</dd>
+    
+    <dt>Price : </dt>
+    <dd>{{ carToDelete.price }}</dd>
+    
+    <dt>N° seats : </dt>
+    <dd>{{ carToDelete.nbSeats }}</dd>
+    
+    <dt>HorsePower : </dt>
+    <dd>{{ carToDelete.horsePower }}</dd>
+    
+    <dt>Weight : </dt>
+    <dd>{{ carToDelete.weight }}</dd>
+</dl>
+<button ng-click="deleteCar()">
+    Delete Car
+</button>
+<br/>
+<br/>
+<a ng-href="#!/cars/update/{{ carToDelete.id }}">{{ carToDelete.model }} update</a>
+<a ng-href="#!/cars">Back to car's list</a>
