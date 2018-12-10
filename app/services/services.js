@@ -7,7 +7,7 @@ carService.constant('apiURL',
                         carListEndpoint : "cars",
                         carSpecificEndpoint : "cars/:carId",
                         carCreateEndpoint : "cars",
-                        carDeleteEndpoint : "cars/:carId",
+                        carDeleteEndpoint : "cars/:id",
                         carUpdateEndpoint : "cars/:carId",
                     }
                    );
@@ -61,6 +61,15 @@ carService.factory("Car", ["$resource", "apiURL", function($resource, apiURL)
                      );
         }
         
+        this.deleteCar = function()
+        {
+            return $resource(apiURL.baseURL+apiURL.carDeleteEndpoint,
+                             {carId : "@Id"},
+                             {
+                                 carDelete : { method : "DELETE" }
+                             }
+                            );
+        }
 
         return this;
     }
