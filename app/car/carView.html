@@ -1,6 +1,6 @@
 <h1>Car List : </h1>
 <p>We have  : {{cars.length}} cars in the dealership</p>
-<table>
+<table class="table is-fullwidth is-striped is-hoverable">
     <tr>
         <th>Id</th>
         <th>N° Seats</th>
@@ -23,22 +23,25 @@
         <td>{{ car.horsePower }}</td>
         <td>{{ car.weight }}</td>
         <td>
-            <a ng-href="#!/cars/{{ car.id }}" ng-click="$event.stopPropagation();">
+            <a ng-href="#!/cars/{{ car.id }}" ng-click="$event.stopPropagation();" class="button is-primary is-rounded">
                 {{ car.model }} details
             </a> 
         </td>
         <td>
-            <a ng-href="#!/cars/update/{{ car.id }}" ng-click="$event.stopPropagation();">
+            <a ng-href="#!/cars/update/{{ car.id }}" ng-click="$event.stopPropagation();" class="button is-warning is-rounded">
                 {{ car.model }} update
             </a> 
         </td>
         <td>
-            <a ng-href="#!/cars/delete/{{ car.id }}" ng-click="$event.stopPropagation();">
-                {{ car.model }} delete
+            <a ng-href="#!/cars/delete/{{ car.id }}" ng-click="$event.stopPropagation()" class="button is-danger is-outlined is-rounded">
+                <span class="column">{{ car.model }} delete</span>
+                <span class="delete is-small">
+                    <!-- <i class="fas fa-times"></i> -->
+                </span>
             </a> 
         </td>
         <td>
-            <a ng-click="deleteCar(car.id, $event) ">
+            <a ng-click="deleteCar(car.id, $event) " class="button is-danger is-rounded">
                 {{ car.model }} delete
             </a> 
         </td>
