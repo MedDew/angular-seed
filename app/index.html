@@ -12,16 +12,39 @@
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="bulma-0.7.2/css/bulma.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="app.css">
   <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
+  <nav class="navbar is-link">
+    <div class="navbar-start">
+      <a href="#!/cars" class="navbar-item">
+        <span class="icon is-large">
+          <i class="fas fa-car"></i>
+        </span>
+        <span class="column">Car List</span>
+      </a>
+      <a href="#!/cars/create" class="navbar-item">
+        <span class="icon is-large">
+          <i class="fas fa-plus-square"></i>
+        </span>
+        <span>Car Create</span>
+      </a>
+      <a href="#!/view1" class="navbar-item">
+        View 1
+      </a>
+      <a href="#!/view2" class="navbar-item">
+        View 2
+      </a>
+    </div>
+  </nav>
+  <!-- <ul class="menu">
     <li><a href="#!/view1">view1</a></li>
     <li><a href="#!/view2">view2</a></li>
     <li><a href="#!/cars">Car List</a></li>
     <li><a href="#!/cars/create">Create Car</a></li>
-  </ul>
+  </ul> -->
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
