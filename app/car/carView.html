@@ -11,6 +11,8 @@
         <th>Weight</th>
         <th>Detail</th>
         <th>Car Update</th>
+        <th>Car Delete</th>
+        <th>Direct Car Delete</th>
     </tr>
     <tr ng-repeat="car in cars" ng-click="getSpecificCar(car.id)">
         <td>{{ car.id }}</td>
@@ -20,8 +22,26 @@
         <td>{{ car.model }}</td>
         <td>{{ car.horsePower }}</td>
         <td>{{ car.weight }}</td>
-        <td><a ng-href="#!/cars/{{ car.id }}">{{ car.model }} details</a> </td>
-        <td><a ng-href="#!/cars/update/{{ car.id }}">{{ car.model }} update</a> </td>
+        <td>
+            <a ng-href="#!/cars/{{ car.id }}" ng-click="$event.stopPropagation();">
+                {{ car.model }} details
+            </a> 
+        </td>
+        <td>
+            <a ng-href="#!/cars/update/{{ car.id }}" ng-click="$event.stopPropagation();">
+                {{ car.model }} update
+            </a> 
+        </td>
+        <td>
+            <a ng-href="#!/cars/delete/{{ car.id }}" ng-click="$event.stopPropagation();">
+                {{ car.model }} delete
+            </a> 
+        </td>
+        <td>
+            <a ng-click="deleteCar(car.id, $event) ">
+                {{ car.model }} delete
+            </a> 
+        </td>
     </tr>
 
 </table>
