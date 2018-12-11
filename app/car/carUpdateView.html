@@ -1,82 +1,142 @@
-<h1>Car update</h1>
+<h1 class="title is-1">Car update</h1>
 <form name="carUpdate" novalidate method="POST">
-    <!-- <pre>{{ updateCarSpecifcTwo.brand | json }}</pre>
-    <pre>{{ updateCarSpecifc | json }}</pre> -->
-    <label for="brand">Brand : </label>
-    <br/>
-    <input id="brand" name="cBrand" ng-model="updateCarSpecifc.brand" ng-value="updateCarSpecifc.brand" required/>
-    <div ng-if="carUpdate.cBrand.$touched">
-        <div ng-if="carUpdate.cBrand.$error.required">
-            Please fill the car's brand field
+
+    <div class="field">
+
+        <!-- <pre>{{ updateCarSpecifcTwo.brand | json }}</pre>
+            <pre>{{ updateCarSpecifc | json }}</pre> -->
+        <label class="label" for="brand">Brand : </label>
+        <div class="control has-icons-right">
+            <input class="input {{cBrandValidCSSClass}}" id="brand" name="cBrand" ng-model="updateCarSpecifc.brand" ng-value="updateCarSpecifc.brand" ng-blur="checkFieldValidity(carUpdate.cBrand)" required/>
+            <span ng-show="carUpdate.cBrand.$untouched" class="icon is-small is-right">
+                <i class="fas fa-exclamation"></i>
+            </span>
+            
+            <car-icon-success-directive ng-show="carUpdate.cBrand.$valid && carUpdate.cBrand.$touched">
+            </car-icon-success-directive>
+
+            <car-icon-fail-directive ng-show="carUpdate.cBrand.$invalid && carUpdate.cBrand.$touched">
+            </car-icon-fail-directive>
+        </div>
+        <div ng-if="carUpdate.cBrand.$touched">
+            <div ng-if="carUpdate.cBrand.$error.required" class="help {{cBrandValidCSSClass}}">
+                Please fill the car's brand field
+            </div>
         </div>
     </div>
     <br/>
-    <br/>
     
-    <label for="model">Model : </label>
-    <br/>
-    <input id="model" name="model" ng-model="updateCarSpecifc.model" ng-value="updateCarSpecifc.model" required/>
+    <label class="label" for="model">Model : </label>
+    <div class="control has-icons-right">
+        <input class="input {{modelValidCSSClass}}" id="model" name="model" ng-model="updateCarSpecifc.model" ng-value="updateCarSpecifc.model" ng-blur="checkFieldValidity(carUpdate.model)" required/>
+        <span class="icon is-small is-right" ng-show="carUpdate.model.$untouched">
+            <i class="fas fa-exclamation"></i>
+        </span>
+
+        <car-icon-success-directive ng-show="carUpdate.model.$valid && carUpdate.model.$touched">
+        </car-icon-success-directive>
+
+        <car-icon-fail-directive ng-show="carUpdate.model.$invalid && carUpdate.model.$touched">
+        </car-icon-fail-directive>
+    </div>
     <div ng-if="carUpdate.model.$touched">
-        <div ng-if="carUpdate.model.$error.required">
+        <div ng-if="carUpdate.model.$error.required" class="help {{modelValidCSSClass}}">
             Please fill the car's model field
         </div>
     </div>
     <br/>
-    <br/>
     
-    <label for="price">Price : </label>
-    <br/>
-    <input type="number" min="1" id="price" name="price" ng-model="updateCarSpecifc.price" ng-value="updateCarSpecifc.price" required/>
+    <label class="label" for="price">Price : </label>
+    
+    <div class="control has-icons-right">
+        <input class="input {{priceValidCSSClass}}" type="number" min="1" id="price" name="price" ng-model="updateCarSpecifc.price" ng-value="updateCarSpecifc.price" ng-blur="checkFieldValidity(carUpdate.price)" required/>
+        <span class="icon is-small is-right" ng-show="carUpdate.price.$untouched">
+            <i class="fas fa-exclamation"></i>
+        </span>
+
+        <car-icon-success-directive ng-show="carUpdate.price.$valid && carUpdate.price.$touched">
+        </car-icon-success-directive>
+
+        <car-icon-fail-directive ng-show="carUpdate.price.$invalid && carUpdate.price.$touched">
+        </car-icon-fail-directive>
+    </div>
     <div ng-if="carUpdate.price.$touched">
-        <div ng-if="carUpdate.price.$error.required">
+        <div ng-if="carUpdate.price.$error.required" class="help {{priceValidCSSClass}}">
             Please fill the car's price field
         </div>
-        <div ng-if="carUpdate.price.$error.min">
+        <div ng-if="carUpdate.price.$error.min" class="help {{priceValidCSSClass}}">
             The minimum price value of a car is 1
         </div>
     </div>
     <br/>
-    <br/>
     
-    <label for="horsePower">Horsepower : </label>
-    <br/>
-    <input type="number" min="1" id="horsePower" name="horsePower" ng-model="updateCarSpecifc.horsePower" ng-value="updateCarSpecifc.horsePower" required/>
+    <label class="label" for="horsePower">Horsepower : </label>
+    <div class="control has-icons-right">
+        <input class="input {{horsePowerValidCSSClass}}" type="number" min="1" id="horsePower" name="horsePower" ng-model="updateCarSpecifc.horsePower" ng-value="updateCarSpecifc.horsePower" ng-blur="checkFieldValidity(carUpdate.horsePower)" required/>
+        <span class="icon is-small is-right" ng-show="carUpdate.horsePower.$untouched">
+            <i class="fas fa-exclamation"></i>
+        </span>
+        
+        <car-icon-success-directive ng-show="carUpdate.horsePower.$valid && carUpdate.horsePower.$touched">
+        </car-icon-success-directive>
+
+        <car-icon-fail-directive ng-show="carUpdate.horsePower.$invalid && carUpdate.horsePower.$touched">
+        </car-icon-fail-directive>
+    </div>
     <div ng-if="carUpdate.horsePower.$touched">
-        <div ng-if="carUpdate.horsePower.$error.required">
+        <div ng-if="carUpdate.horsePower.$error.required" class="help {{horsePowerValidCSSClass}}">
             Please fill the car's horsepower field
         </div>
-        <div ng-if="carUpdate.horsePower.$error.min">
+        <div ng-if="carUpdate.horsePower.$error.min" class="help {{horsePowerValidCSSClass}}">
             The minimum horsepower value of a car is 1
         </div>
     </div>
     <br/>
-    <br/>
     
-    <label for="seats">N° seats : </label>
-    <br/>
-    <input type="number" min="2" max="9" id="seats" name="nbSeats" ng-model="updateCarSpecifc.nbSeats" ng-value="updateCarSpecifc.nbSeats" required/>
+    <label class="label" for="seats">N° seats : </label>
+    <div class="control has-icons-right">
+        <input class="input {{nbSeatsValidCSSClass}}" type="number" min="2" max="9" id="seats" name="nbSeats" ng-model="updateCarSpecifc.nbSeats" ng-value="updateCarSpecifc.nbSeats" ng-blur="checkFieldValidity(carUpdate.nbSeats)" required/>
+        <span class="icon is-small is-right" ng-show="carUpdate.nbSeats.$untouched">
+            <i class="fas fa-exclamation"></i>
+        </span>
+
+        <car-icon-success-directive ng-show="carUpdate.nbSeats.$valid && carUpdate.nbSeats.$touched">
+        </car-icon-success-directive>
+
+        <car-icon-fail-directive ng-show="carUpdate.nbSeats.$invalid && carUpdate.nbSeats.$touched">
+        </car-icon-fail-directive>
+    </div>
     <div ng-if="carUpdate.nbSeats.$touched">
-        <div ng-if="carUpdate.nbSeats.$error.required">
+        <div ng-if="carUpdate.nbSeats.$error.required" class="help {{nbSeatsValidCSSClass}}">
             Please fill the car's number of seats field
         </div>
-        <div ng-if="carUpdate.nbSeats.$error.min">
+        <div ng-if="carUpdate.nbSeats.$error.min" class="help {{nbSeatsValidCSSClass}}">
             The minimum number of seats value of a car is 2
         </div>
     </div>
     <br/>
-    <br/>
     
-    <label for="weight">Weight : </label>
-    <br/>
-    <input type="number" id="weight" name="weight" step="100" ng-model="updateCarSpecifc.weight" ng-value="updateCarSpecifc.weight" required/>
+    <label class="label" for="weight">Weight : </label>
+    <div class="control has-icons-right">
+        <input class="input {{weightValidCSSClass}}" type="number" id="weight" name="weight" step="100" ng-model="updateCarSpecifc.weight" ng-value="updateCarSpecifc.weight" ng-blur="checkFieldValidity(carUpdate.weight)" required/>
+        <span class="icon is-small is-right" ng-show="carUpdate.weight.$untouched">
+            <i class="fas fa-exclamation"></i>
+        </span>
+        
+        <car-icon-success-directive ng-show="carUpdate.weight.$valid && carUpdate.weight.$touched">
+        </car-icon-success-directive>
+
+        <car-icon-fail-directive ng-show="carUpdate.weight.$invalid && carUpdate.weight.$touched">
+        </car-icon-fail-directive>
+    </div>
     <div ng-if="carUpdate.weight.$touched">
-        <div ng-if="carUpdate.weight.$error.required">
+        <div ng-if="carUpdate.weight.$error.required" class="help {{weightValidCSSClass}}">
             Please fill the car's weight field
         </div>
     </div>
     <br/>
     <br/>
 
-    <button ng-click="submitCarUpdateValues(updateCarSpecifc)">Update car</button>
-    <button ng-click="resetCarUpdateForm()">Reset car form</button>
+    <button ng-click="submitCarUpdateValues(updateCarSpecifc)" class="button is-primary">Update car</button>
+    <button ng-click="resetCarUpdateForm()" class="button is-warning">Reset car form</button>
 </form>
