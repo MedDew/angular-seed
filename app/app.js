@@ -7,6 +7,8 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.version',
   "carModule",
+  "carIconSuccessDirectiveModule",
+  "carIconFailDirectiveModule",
   "CarServices"
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
