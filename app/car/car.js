@@ -144,7 +144,78 @@ carConfig.controller("CarController", ["$scope", "Car" , "$location", "redirecte
         //     $scope.updateCarSpecifcTwo = response;
         //     console.log("Reponse", $scope.updateCarSpecifcTwo)
         // });
-        
+        $scope.checkFieldValidity = function(formName)
+        {
+            console.log("Form",formName);
+            console.log("Is unTouched",formName.$untouched);
+            console.log("Is valid",formName.$valid);
+            console.log("Is Touched",$scope.carUpdate.cBrand.$touched);
+            switch(formName.$name)
+            {
+                case "cBrand" :
+                    if(formName.$valid)
+                    {
+                        $scope.cBrandValidCSSClass = "is-success";
+                    }
+                    else
+                    {
+                        $scope.cBrandValidCSSClass = "is-danger";
+                    }
+                break;
+                case "model" :
+                    if(formName.$valid)
+                    {
+                        $scope.modelValidCSSClass = "is-success";
+                    }
+                    else
+                    {
+                        $scope.modelValidCSSClass = "is-danger";
+                    }
+                break;
+                case "price" :
+                    if(formName.$valid)
+                    {
+                        $scope.priceValidCSSClass = "is-success";
+                    }
+                    else
+                    {
+                        $scope.priceValidCSSClass = "is-danger";
+                    }
+                break;
+                case "horsePower" :
+                    if(formName.$valid)
+                    {
+                        $scope.horsePowerValidCSSClass = "is-success";
+                    }
+                    else
+                    {
+                        $scope.horsePowerValidCSSClass = "is-danger";
+                    }
+                break;
+                case "nbSeats" :
+                    if(formName.$valid)
+                    {
+                        $scope.nbSeatsValidCSSClass = "is-success";
+                    }
+                    else
+                    {
+                        $scope.nbSeatsValidCSSClass = "is-danger";
+                    }
+                break;
+                case "weight" :
+                    if(formName.$valid)
+                    {
+                        $scope.weightValidCSSClass = "is-success";
+                    }
+                    else
+                    {
+                        $scope.weightValidCSSClass = "is-danger";
+                    }
+                break;
+            }
+            
+        }
+
         console.log("Reponse2", $scope.updateCarSpecifcTwo)
         // console.log(updateCarSpecifc)
         console.log("HEY : " , $scope.updateCarSpecifc);
