@@ -1,29 +1,39 @@
 
-<h1>Car to delete : {{ carToDelete.brand }} - {{ carToDelete.model }}</h1>
-
-<dl>
-    <dt>Brand : </dt>
-    <dd>{{ carToDelete.brand }}</dd>
-    
-    <dt>Model : </dt>
-    <dd>{{ carToDelete.model }}</dd>
-    
-    <dt>Price : </dt>
-    <dd>{{ carToDelete.price }}</dd>
-    
-    <dt>N° seats : </dt>
-    <dd>{{ carToDelete.nbSeats }}</dd>
-    
-    <dt>HorsePower : </dt>
-    <dd>{{ carToDelete.horsePower }}</dd>
-    
-    <dt>Weight : </dt>
-    <dd>{{ carToDelete.weight }}</dd>
-</dl>
-<button ng-click="deleteCar()">
-    Delete Car
-</button>
-<br/>
-<br/>
-<a ng-href="#!/cars/update/{{ carToDelete.id }}">{{ carToDelete.model }} update</a>
-<a ng-href="#!/cars">Back to car's list</a>
+<!-- <h1>Car to delete : {{ carToDelete.brand }} - {{ carToDelete.model }}</h1> -->
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            Car details for: {{ carToDelete.brand }} - {{ carToDelete.model }}
+        </p>
+    </header>
+    <div class="card-content">
+        <div class="content is-large">
+            <dl>
+                <dt>Brand : </dt>
+                <dd>{{ carToDelete.brand }}</dd>
+                
+                <dt>Model : </dt>
+                <dd>{{ carToDelete.model }}</dd>
+                
+                <dt>Price : </dt>
+                <dd>{{ carToDelete.price }}</dd>
+                
+                <dt>N° seats : </dt>
+                <dd>{{ carToDelete.nbSeats }}</dd>
+                
+                <dt>HorsePower : </dt>
+                <dd>{{ carToDelete.horsePower }}</dd>
+                
+                <dt>Weight : </dt>
+                <dd>{{ carToDelete.weight }}</dd>
+            </dl>
+        </div>
+    </div>
+    <footer class="card-footer">
+        <button ng-click="deleteCar()" class="button is-danger">
+            Delete Car
+        </button>
+        <a ng-href="#!/cars/update/{{ carToDelete.id }}" class="button is-warning card-footer-item">{{ carToDelete.model }} update</a>
+        <a ng-href="#!/cars" class="button is-primary card-footer-item">Back to car's list</a>
+    </footer>
+</div>
